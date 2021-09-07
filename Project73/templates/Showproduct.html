@@ -1,0 +1,44 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+    <title>Show Product Page</title>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h2 style="text-align: center;color: brown;margin: 1%;">Product Summery</h2>
+    </div>
+    <table class="table table-success" style="width: 80%;margin: 2% 10%;">
+        <tr>
+            <div style="width: 80%;margin: 2% 10%;">
+                <a href="{% url 'addproduct' %}"><button class="btn btn-primary">Add Product</button></a>
+            </div>
+        </tr>
+        <tr>
+            <th>Product ID</th>
+            <th>Date</th>
+            <th>Provider</th>
+            <th>Name Of Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Stock</th>
+            <th>#</th>
+            <th>#</th>
+        </tr>
+        {% for product in prd %}
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.date}}</td>
+                <td>{{product.provider}}</td>
+                <td>{{product.productname}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.qty}}</td>
+                <td>{{product.amount}}</td>
+                <td>{{product.stock}}</td>
+                <td><a href="{% url 'update' product.id %}"><button class="btn btn-warning">Update</button></a></td>
+                <td><a href="{% url 'delete' product.id %}"><button class="btn btn-danger">Delete</button></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

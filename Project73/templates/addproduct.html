@@ -1,0 +1,15 @@
+{% extends 'Base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Add Product Page</title>
+{% endblock %}
+
+{% block content %}
+    <form method="POST" class="jumbotron" style="margin: 2% 20%;width: 60%;">
+        <h2 style="margin: 2%;padding: 1%;text-align: center;">Product Registration Form....</h2>
+        {% csrf_token %}
+        {{form|crispy}}<br>
+        <a href="{% url 'showproduct' %}"><button type="submit" class="btn btn-primary btn-lg" style="margin: 0% 40%;">Add Product</button></a>
+    </form>
+{% endblock %}
